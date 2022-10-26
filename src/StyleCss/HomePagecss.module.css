@@ -1,0 +1,13 @@
+.container {
+  width: 100%;
+}
+.childcontainer {
+  width: 100%;
+  display: flex;
+}
+.sidebar {
+  width: 20%;
+}
+.productcss {
+  width: 80%;
+}

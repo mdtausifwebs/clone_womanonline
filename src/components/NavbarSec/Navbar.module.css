@@ -1,0 +1,76 @@
+.container {
+  display: flex;
+  justify-content: space-between;
+  padding: 0 5px 0 5px;
+  margin-bottom: 20px;
+  height: 80px;
+}
+.childContainer {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  /* border: 1px solid black; */
+  box-shadow: 0 0 20px rgb(133, 130, 130);
+}
+.logoSec {
+  width: 8%;
+  /* border: 1px solid black; */
+}
+.logoSec img {
+  width: 60%;
+}
+.manuSec {
+  width: 60%;
+  /* border: 1px solid black; */
+  display: flex;
+  justify-content: space-around;
+}
+.manuchild {
+  font-size: 12px;
+  font-weight: 700;
+}
+.searchSec {
+  width: 15%;
+  padding: 2px;
+  border: 1px solid rgb(237, 233, 233);
+}
+.searchSec input {
+  outline: none;
+  border: none;
+  padding: 8px;
+}
+.loginSec {
+  width: 15%;
+  /* border: 1px solid black; */
+  display: flex;
+  justify-content: space-around;
+}
+.loginIcon,
+.cartIcon {
+  display: flex;
+  justify-content: space-around;
+  flex-direction: column;
+}
+
+.loginIcon i,
+.cartIcon i {
+  font-size: 20px;
+}
+/*  */
+
+.topwear {
+  display: none;
+}
+.botomwear {
+  display: none;
+}
+.hovertopwear {
+  position: relative;
+}
+.hovertopwear:hover .topwear {
+  position: absolute;
+  top: 20px;
+  display: flex;
+  flex-direction: column;
+}

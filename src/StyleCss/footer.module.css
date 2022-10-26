@@ -1,0 +1,47 @@
+.container {
+  width: 100%;
+}
+.footersec {
+  width: 100%;
+  background-color: rgb(224, 222, 219);
+  align-items: center;
+  justify-content: center;
+}
+.manu {
+  padding: 10px;
+  display: flex;
+  flex-wrap: wrap;
+  width: 70%;
+  margin: auto;
+}
+.manutext {
+  width: 15%;
+  padding: 5px;
+  font-size: 14px;
+  font-weight: 500;
+}
+.manutext a{
+    text-decoration: none;
+    list-style:none;
+}
+.socialMedia {
+  width: 100%;
+}
+.socialMedia i {
+  width: 5%;
+  font-size: 20px;
+  padding: 10px;
+  cursor: pointer;
+}
+.contactDetails {
+    width: 70%;
+    margin: auto;
+  padding: 10px;
+}
+.contactDetails p{
+   font-size: 12px;
+   font-weight: 400;
+}
+.copyRight p {
+  padding: 0;
+}
