@@ -5,6 +5,7 @@ import { Link } from "react-router-dom";
 import Productcss from "../../StyleCss/ProductsStyle.module.css";
 const ProductsWomen = () => {
   const { FilterProduct, Loading } = useSelector((state) => state);
+  console.log('FilterProduct', FilterProduct);
   return (
     <div className={Productcss.container}>
       {Loading === true ? (
