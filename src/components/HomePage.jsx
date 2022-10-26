@@ -10,47 +10,43 @@ import HomepageCss from "../StyleCss/HomePagecss.module.css";
 const HomePage = () => {
   const dispatch = useDispatch();
   const params = useParams().navcategory;
-  let categoryArr = [
-    "footwear-wedges",
-    "footwear-wedges",
-    "top-wear-kurtas",
-    "top-wear-sets-dresses",
-    "folksong-topwear",
-    "topwear-plus-size",
-    "top-wear-tops",
-    "bottom-wear-palazzo-pants",
-    "bottom-wear-churidars-salwar",
-    "bottomwear-plus-size",
-    "bottom-wear-skirts",
-    "footwear-heels",
-    "footwear-flats",
-    "footwear-wedges",
-    "women-jewellery",
-    "drapes-wear",
-    "drapes-wear-dupatta",
-    "wishful",
-    "wishful-kurtas",
-    "wishful-sets-dresses",
-    "wishful-palazzos-and-pants",
-    "w-plus-size",
-    "w-aikat",
-    "w-sunehr",
-    "stories-by-w",
-    "now-trending",
-  ];
+  // let categoryArr = [
+  //   "footwear-wedges",
+  //   "footwear-wedges",
+  //   "top-wear-kurtas",
+  //   "top-wear-sets-dresses",
+  //   "folksong-topwear",
+  //   "topwear-plus-size",
+  //   "top-wear-tops",
+  //   "bottom-wear-palazzo-pants",
+  //   "bottom-wear-churidars-salwar",
+  //   "bottomwear-plus-size",
+  //   "bottom-wear-skirts",
+  //   "footwear-heels",
+  //   "footwear-flats",
+  //   "footwear-wedges",
+  //   "women-jewellery",
+  //   "drapes-wear",
+  //   "drapes-wear-dupatta",
+  //   "wishful",
+  //   "wishful-kurtas",
+  //   "wishful-sets-dresses",
+  //   "wishful-palazzos-and-pants",
+  //   "w-plus-size",
+  //   "w-aikat",
+  //   "w-sunehr",
+  //   "stories-by-w",
+  //   "now-trending",
+  // ];
   const [index, setIndex] = useState();
-  useEffect(() => {
-    let randomNumber = Math.floor(Math.random() * 20);
-    setIndex(randomNumber);
-  }, []);
   const [pageNo, setPageNo] = useState(1);
   const [pageSize, setPageSize] = useState(200);
   useEffect(() => {
     dispatch({ type: "SET_LOADING", payload: true });
-    let getdata = async () => {
+    let getdata = async (pageNo, pageSize, params, categoryArr, index) => {
       let res = await axios.get(
         `https://pim.wforwoman.com/pim/pimresponse.php/?service=category&store=1&url_key=${
-          params || categoryArr[index]
+          params || "top-wear-kurtas"
         }&page=${pageNo}&count=${pageSize}`
       );
       // let res = await axios.get(
@@ -66,7 +62,9 @@ const HomePage = () => {
       setPageSize(200);
     };
     getdata();
-  }, [dispatch, pageNo, pageSize, params, categoryArr, index]);
+    setIndex(5);
+  }, [dispatch, pageNo, pageSize, params, index]);
+
   return (
     <div className={HomepageCss.container}>
       <div className={HomepageCss.childcontainer}>
