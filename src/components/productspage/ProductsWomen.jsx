@@ -4,11 +4,12 @@ import ProductSlider from "./ProductSlider";
 import { Link } from "react-router-dom";
 import Productcss from "../../StyleCss/ProductsStyle.module.css";
 const ProductsWomen = () => {
-  
   const { FilterProduct, Loading } = useSelector((state) => state);
   return (
     <div className={Productcss.container}>
-      {Loading === true ? (
+      {Loading ? (
+        <div>Loading...</div>
+      ) : (
         <div className={Productcss.childContainer}>
           {FilterProduct?.map((item, i) => {
             return (
@@ -32,8 +33,6 @@ const ProductsWomen = () => {
             );
           })}
         </div>
-      ) : (
-        <div>Loading...</div>
       )}
     </div>
   );

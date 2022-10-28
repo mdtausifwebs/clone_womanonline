@@ -54,7 +54,8 @@ const HomePage = () => {
       res
         ? dispatch({ type: "SET_PRODUCTS", payload: res }) &&
           dispatch({ type: "SET_FILTER_PRODUCT", payload: res }) &&
-          dispatch({ type: "SET_SUCCESS", payload: false })
+          dispatch({ type: "SET_SUCCESS", payload: false }) &&
+          dispatch({ type: "SET_LOADING", payload: false })
         : dispatch({ type: "SET_ERROR", payload: false });
       setPageNo(1);
       setPageSize(200);

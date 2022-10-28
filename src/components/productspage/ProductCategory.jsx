@@ -12,6 +12,7 @@ const ProductCategory = () => {
   const [pageNo, setPageNo] = useState(1);
   const [pageSize, setPageSize] = useState(200);
   const { FilterProduct, Loading } = useSelector((state) => state);
+  console.log('Loading', Loading);
   useEffect(() => {
     dispatch({ type: "SET_LOADING", payload: true });
     let getdata = async () => {
@@ -25,7 +26,8 @@ const ProductCategory = () => {
       res
         ? dispatch({ type: "SET_PRODUCTS", payload: res }) &&
           dispatch({ type: "SET_FILTER_PRODUCT", payload: res }) &&
-          dispatch({ type: "SET_SUCCESS", payload: false })
+          dispatch({ type: "SET_SUCCESS", payload: false }) &&
+          dispatch({ type: "SET_LOADING", payload: false })
         : dispatch({ type: "SET_ERROR", payload: false });
       setPageNo(1);
       setPageSize(200);
@@ -35,7 +37,9 @@ const ProductCategory = () => {
   return (
     <div>
       <div className={Productcss.container}>
-        {Loading === true ? (
+        {Loading ? (
+          <div>Loading category</div>
+        ) : (
           <div className={Productcss.childContainer}>
             {FilterProduct?.map((item, i) => {
               return (
@@ -59,8 +63,6 @@ const ProductCategory = () => {
               );
             })}
           </div>
-        ) : (
-          <div>Loading...</div>
         )}
       </div>
     </div>
