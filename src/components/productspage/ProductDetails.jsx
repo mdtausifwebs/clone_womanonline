@@ -5,6 +5,7 @@ import { useSelector } from "react-redux";
 import { useNavigate, useParams, Link } from "react-router-dom";
 import productdetailcss from "../../StyleCss/productdetail.module.css";
 const ProductDetails = () => {
+  const [tempdetails, settempdetails] = useState(false);
   const navigatelink = useNavigate();
   const params = useParams();
   const { Products } = useSelector((state) => state);
@@ -31,19 +32,21 @@ const ProductDetails = () => {
           {gallery &&
             gallery.map((item, i) => {
               return (
-                <img
-                  key={i}
-                  src={item.image}
-                  alt={item.image}
-                  onClick={() => setindex(i)}
-                />
+                <div className={productdetailcss.imagess}>
+                  <img
+                    key={i}
+                    src={item.image}
+                    alt={item.image}
+                    onClick={() => setindex(i)}
+                  />
+                </div>
               );
             })}
         </div>
         <div className={productdetailcss.bigimage}>
           <img
-            src={gallery ? gallery[index].image : ""}
-            alt={gallery[index].image}
+            src={gallery && gallery[index].image}
+            alt={gallery && gallery[index].image}
           />
         </div>
         <div className={productdetailcss.productdetailsSex}>
@@ -67,20 +70,15 @@ const ProductDetails = () => {
             </div>
             <div className={productdetailcss.cart_button}>
               <div>
-                {/* <button onClick={() => setIntemCount(intemCount > 0 ? -1 : 0)}>
-                  -
-                </button>
-                <span>{intemCount}</span>
-                <button onClick={() => setIntemCount(intemCount + 1)}>+</button>
-                <button
-                  className={productdetailcss.buynowCartBtn}
-                  onClick={() => dispatch({ type: "SET_CARTS", payload: data })}
-                >
+                <button>-</button>
+                <span>10</span>
+                <button>+</button>
+                <button className={productdetailcss.buynowCartBtn}>
                   ADD TO CART
                 </button>
                 <button className={productdetailcss.buynowCartBtn}>
                   BUY NOW
-                </button> */}
+                </button>
               </div>
             </div>
             <div className={productdetailcss.deleverySec}>
@@ -122,7 +120,7 @@ const ProductDetails = () => {
                     <span>Regular</span>
                   </li>
                 </ul>
-                {/* <ul>
+                <ul>
                   <span
                     className={productdetailcss.seeAndHide}
                     onClick={() =>
@@ -131,8 +129,8 @@ const ProductDetails = () => {
                   >
                     {tempdetails ? "Hide More" : "Show More"}
                   </span>
-                </ul> */}
-                {true ? (
+                </ul>
+                {tempdetails ? (
                   <ul className={productdetailcss.deleveryProductDetails}>
                     <li>
                       <span>Fit</span>

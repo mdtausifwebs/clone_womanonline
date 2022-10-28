@@ -40,15 +40,16 @@ const HomePage = () => {
   // ];
   const [pageNo, setPageNo] = useState(1);
   const [pageSize, setPageSize] = useState(200);
+  const [categoryConst, setcategoryConst] = useState("top-wear-sets-dresses");
   useEffect(() => {
     dispatch({ type: "SET_LOADING", payload: true });
-    let getdata = async (pageNo, pageSize) => {
-      // let res = await axios.get(
-      //   `https://pim.wforwoman.com/pim/pimresponse.php/?service=category&store=1&url_key=top-wear-kurtas&page=${pageNo}&count=${pageSize}`
-      // );
+    let getdata = async () => {
       let res = await axios.get(
-        `https://pim.wforwoman.com/pim/pimresponse.php/?service=category&store=1&url_key=top-wear-sets-dresses&page=1&count=400`
+        `https://pim.wforwoman.com/pim/pimresponse.php/?service=category&store=1&url_key=${categoryConst}&page=${pageNo}&count=${pageSize}`
       );
+      // let res = await axios.get(
+      //   `https://pim.wforwoman.com/pim/pimresponse.php/?service=category&store=1&url_key=top-wear-sets-dresses&page=1&count=400`
+      // );
       res = await res.data.result.products;
       res
         ? dispatch({ type: "SET_PRODUCTS", payload: res }) &&
@@ -57,9 +58,10 @@ const HomePage = () => {
         : dispatch({ type: "SET_ERROR", payload: false });
       setPageNo(1);
       setPageSize(200);
+      setcategoryConst("topwear-plus-size");
     };
     getdata();
-  }, [dispatch, pageNo, pageSize, ]);
+  }, [dispatch, pageNo, pageSize, categoryConst]);
 
   return (
     <div className={HomepageCss.container}>
@@ -68,7 +70,7 @@ const HomePage = () => {
           <Sidebar />
         </div>
         <div className={HomepageCss.productcss}>
-          <ProductsWomen />
+          <ProductsWomen params={params} />
         </div>
       </div>
     </div>

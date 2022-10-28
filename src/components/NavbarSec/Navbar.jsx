@@ -15,47 +15,84 @@ const Navbar = () => {
         </div>
         <div className={navbarcss.manuSec}>
           <div className={navbarcss.manuchild}>
-            <span>NEW LAUNCH</span>
+            <Link to="/now-trending">
+              <span>NEW LAUNCH</span>
+            </Link>
           </div>
           <div className={navbarcss.manuchild}>
             <span className={navbarcss.hovertopwear}>
-              <Link to={"/top-wear-kurtas"}>TOP WEAR</Link>
+              <Link to={"/top-wear-sets-dresses"}>TOP WEAR</Link>
               <div className={navbarcss.topwear}>
-                <span>KURTAS</span>
-                <span>SETS & DRESSES</span>
-                <span>FOLKSONG</span>
-                <span>PLUS SIZE</span>
-                <span>TOPS</span>
+                <Link to="/top-wear-kurtas">
+                  <span>KURTAS</span>
+                </Link>
+                <Link to="/top-wear-sets-dresses">
+                  <span>SETS & DRESSES</span>
+                </Link>
+                <Link to="/folksong-topwear">
+                  <span>FOLKSONG</span>
+                </Link>
+                <Link to="/topwear-plus-size">
+                  <span>PLUS SIZE</span>
+                </Link>
+                <Link to="/top-wear-tops">
+                  <span>TOPS</span>
+                </Link>
               </div>
             </span>
           </div>
           <div className={navbarcss.manuchild}>
-            <span>BOTTOM WEAR</span>
+            <Link to="/bottom-wear-churidars-salwar">
+              <span>BOTTOM WEAR</span>
+            </Link>
             <div className={navbarcss.botomwear}>
-              <span>PLAZOOS & PANTS</span>
-              <span>CHURIDARS & SALWARS</span>
-              <span>FOLKSONG</span>
-              <span>PLUS SIZES</span>
-              <span>SKIRTS</span>
+              <Link to="/bottom-wear-palazzo-pants">
+                <span>PLAZOOS & PANTS</span>
+              </Link>
+              <Link to="/bottom-wear-churidars-salwar">
+                <span>CHURIDARS & SALWARS</span>
+              </Link>
+              <Link to="/folksong-topwear">
+                <span>FOLKSONG</span>
+              </Link>
+              <Link to="/w-plus-size">
+                <span>PLUS SIZES</span>
+              </Link>
+              <Link to="/bottom-wear-skirts">
+                <span>SKIRTS</span>
+              </Link>
             </div>
           </div>
           <div className={navbarcss.manuchild}>
-            <span>COSMETIC</span>
+            <Link to="/">
+              <span>COSMETIC</span>
+            </Link>
           </div>
           <div className={navbarcss.manuchild}>
             <span>FOOTWEAR</span>
+            <Link to="/footwear">
+              <span>FOOTWEAR</span>
+            </Link>
           </div>
           <div className={navbarcss.manuchild}>
-            <span>JEWELLERY</span>
+            <Link to="/women-jewellery">
+              <span>JEWELLERY</span>
+            </Link>
           </div>
           <div className={navbarcss.manuchild}>
-            <span>DRAPES</span>
+            <Link to="/">
+              <span>DRAPES</span>
+            </Link>
           </div>
           <div className={navbarcss.manuchild}>
-            <span>WISHFUL</span>
+            <Link to="/">
+              <span>WISHFUL</span>
+            </Link>
           </div>
           <div className={navbarcss.manuchild}>
-            <span>PLUS SIZE</span>
+            <Link to="/w-plus-size">
+              <span>PLUS SIZE</span>
+            </Link>
           </div>
           <div className={navbarcss.manuchild}>
             <span>STORE BY W</span>
@@ -72,7 +109,6 @@ const Navbar = () => {
             <span>LOGIN</span>
           </div>
           <div className={navbarcss.cartIcon}>
-            {/* <p>{cartdata ? cartdata.length : "0"}</p> */}
             <i className="fa fa-shopping-bag" aria-hidden="true"></i>
             <span>Cart</span>
           </div>

@@ -4,6 +4,7 @@ import ProductSlider from "./ProductSlider";
 import { Link } from "react-router-dom";
 import Productcss from "../../StyleCss/ProductsStyle.module.css";
 const ProductsWomen = () => {
+  
   const { FilterProduct, Loading } = useSelector((state) => state);
   return (
     <div className={Productcss.container}>
@@ -12,7 +13,7 @@ const ProductsWomen = () => {
           {FilterProduct?.map((item, i) => {
             return (
               <div key={i} className={Productcss.ProductBox}>
-                <Link to={`/product/${item.id_product}`}>
+                <Link to={`/details/${item.id_product}`}>
                   <div className={Productcss.img_details}>
                     <ProductSlider images={item.gallery} />
                     <p>VIEW DETAILS</p>
