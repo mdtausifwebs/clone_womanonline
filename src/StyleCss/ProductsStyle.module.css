@@ -1,5 +1,7 @@
 .container {
   width: 99%;
+  display: flex;
+  justify-content: space-between;
 }
 .childContainer {
   width: 100%;
@@ -8,7 +10,13 @@
   flex-wrap: wrap;
   padding: 5px;
 }
+.sidebar {
+  width: 25%;
+}
 .ProductBox {
   width: 23%;
   border: 1px solid black;
+}
+.sidebar{
+  width: 20%;
 }

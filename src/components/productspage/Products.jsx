@@ -4,15 +4,15 @@ import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useParams, Link } from "react-router-dom";
 import ProductSlider from "./ProductSlider";
+import Sidebar from "../NavbarSec/Sidebar";
 import Productcss from "../../StyleCss/ProductsStyle.module.css";
 import axios from "axios";
-const ProductCategory = () => {
+const Products = () => {
   const dispatch = useDispatch();
   const params = useParams().navcategory;
   const [pageNo, setPageNo] = useState(1);
   const [pageSize, setPageSize] = useState(200);
-  const { FilterProduct, Loading } = useSelector((state) => state);
-  console.log('Loading', Loading);
+  const { FilterProduct } = useSelector((state) => state);
   useEffect(() => {
     dispatch({ type: "SET_LOADING", payload: true });
     let getdata = async () => {
@@ -37,9 +37,9 @@ const ProductCategory = () => {
   return (
     <div>
       <div className={Productcss.container}>
-        {Loading ? (
-          <div>Loading category</div>
-        ) : (
+        <div className={Productcss.sidebar}>
+          <Sidebar />
+        </div>
           <div className={Productcss.childContainer}>
             {FilterProduct?.map((item, i) => {
               return (
@@ -63,10 +63,10 @@ const ProductCategory = () => {
               );
             })}
           </div>
-        )}
+       
       </div>
     </div>
   );
 };
 
-export default ProductCategory;
+export default Products;

@@ -43,7 +43,6 @@
 }
 .loginSec {
   width: 15%;
-  /* border: 1px solid black; */
   display: flex;
   justify-content: space-around;
 }
@@ -59,25 +58,107 @@
   font-size: 20px;
 }
 /*  */
-
-.topwear {
+.topwear,
+.botomwear,
+.cosmetic,
+.footwear,
+.drapes,
+.wishful,
+.store {
   display: none;
+  /* border: 1px solid black; */
 }
-.botomwear {
-  display: none;
+.topwearLink,
+.botomwearLink,
+.cosmeticLink,
+.footwearLink,
+.drapesLink,
+.wishfulLink,
+.storeLink {
+  display: flex;
+  flex-direction: column;
+  width: 160%;
+  padding: 10px 2px 10px 0px;
+  background-color: transparent;
+  background-color: #bab7b7;
+  margin-top: 10px;
+}
+.topwearLink a,
+.botomwearLink a,
+.cosmeticLink a,
+.footwearLink a,
+.drapesLink a,
+.wishfulLink a,
+.storeLink a {
+  font-size: 12px;
+  width: 100%;
+  padding: 10px;
+}
+.topwearLink span,
+.botomwearLink span,
+.cosmeticLink span,
+.footwearLink span,
+.drapesLink span,
+.wishfulLink span,
+.storeLink span {
+  width: 100%;
 }
 .hovertopwear {
   position: relative;
 }
-.hovertopwear:hover .topwear {
+.manuchild:hover .topwear {
   position: absolute;
-  top: 20px;
+  top: 10px;
+
   display: flex;
   flex-direction: column;
+  z-index: 1;
 }
-.manuchild:hover .botomwear{
+.manuchild:hover .botomwear {
   display: flex;
   position: absolute;
-  top: 20px;
+  top: 10px;
+
   flex-direction: column;
+  z-index: 1;
+}
+.manuchild:hover .cosmetic {
+  display: flex;
+  position: absolute;
+  top: 10px;
+
+  flex-direction: column;
+  z-index: 1;
+}
+.manuchild:hover .footwear {
+  display: flex;
+  position: absolute;
+  top: 10px;
+
+  flex-direction: column;
+  z-index: 1;
+}
+.manuchild:hover .drapes {
+  display: flex;
+  position: absolute;
+  top: 10px;
+
+  flex-direction: column;
+  z-index: 1;
+}
+.manuchild:hover .wishful {
+  display: flex;
+  position: absolute;
+  top: 10px;
+
+  flex-direction: column;
+  z-index: 1;
+}
+.manuchild:hover .store {
+  display: flex;
+  position: absolute;
+  top: 10px;
+
+  flex-direction: column;
+  z-index: 1;
 }

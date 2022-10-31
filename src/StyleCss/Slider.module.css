@@ -1,0 +1,35 @@
+.container {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.imagebox {
+  width: 90%;
+  display: flex;
+  align-items: center;
+  position: relative;
+}
+.imagebox img {
+  width: 100%;
+}
+#lefticon {
+  position: absolute;
+  left: 20px;
+  font-size: 50px;
+  color: white;
+  display: none;
+}
+#righticon {
+  position: absolute;
+  right: 20px;
+  font-size: 50px;
+  color: white;
+  display: none;
+}
+.imagebox:hover #lefticon {
+  display: flex;
+}
+.imagebox:hover #righticon {
+  display: flex;
+}

@@ -1,0 +1,42 @@
+.container {
+  width: 100%;
+}
+.categorybox {
+  align-items: center;
+  justify-content: center;
+  align-items: center;
+  margin: auto;
+  padding: 10px;
+}
+.categorybox {
+  display: flex;
+  width: 95%;
+  /* border: 1px solid black; */
+}
+.CategoryImage {
+  width: 100%;
+}
+.CategoryImage img {
+  width: 80%;
+  /* border: 1px solid black; */
+}
+.head {
+  /* border: 1px solid black; */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.head h1 {
+  width: 20%;
+  /* border: 1px solid black; */
+  padding: 5px;
+  background-color: #740606;
+  color: white;
+  font-size: 30px;
+  font-weight: 700;
+  border: 10px 10px 10px #a80e0e;
+  border-radius: 5px;
+}
+img{
+  cursor: pointer;
+}

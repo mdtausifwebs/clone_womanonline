@@ -1,10 +1,9 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import footercss from "../StyleCss/footer.module.css";
+import footercss from "../../StyleCss/footer.module.css";
 const Footer = () => {
   return (
     <div className={footercss.container}>
-      <h1>Footer</h1>
       <div className={footercss.footersec}>
         <div className={footercss.manu}>
           <div className={footercss.manutext}>
