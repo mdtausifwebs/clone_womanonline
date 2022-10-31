@@ -17,6 +17,20 @@
   width: 23%;
   border: 1px solid black;
 }
-.sidebar{
+.sidebar {
   width: 20%;
+}
+.img_details {
+  position: relative;
+  align-items: center;
+}
+.img_details .details {
+  display: none;
+}
+.img_details:hover .details {
+  width: 100%;
+  position: absolute;
+  display: flex;
+  bottom: 1px;
+  background-color: red;
 }

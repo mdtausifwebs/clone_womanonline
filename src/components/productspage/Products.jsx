@@ -40,30 +40,31 @@ const Products = () => {
         <div className={Productcss.sidebar}>
           <Sidebar />
         </div>
-          <div className={Productcss.childContainer}>
-            {FilterProduct?.map((item, i) => {
-              return (
-                <div key={i} className={Productcss.ProductBox}>
-                  <Link to={`/details/${item.id_product}`}>
-                    <div className={Productcss.img_details}>
-                      <ProductSlider images={item.gallery} />
+        <div className={Productcss.childContainer}>
+          {FilterProduct?.map((item, i) => {
+            return (
+              <div key={i} className={Productcss.ProductBox}>
+                <Link to={`/details/${item.id_product}`}>
+                  <div className={Productcss.img_details}>
+                    <ProductSlider images={item.gallery} />
+                    <div className={Productcss.details}>
                       <p>VIEW DETAILS</p>
                     </div>
-                    <div>{item.name}</div>
-                    <div>{`Rs.${item.price}`}</div>
-                    <div>{`Size ${item.size
-                      .split("]")
-                      .join("")
-                      .split("[")
-                      .join("")
-                      .trim()
-                      .split(" ")}`}</div>
-                  </Link>
-                </div>
-              );
-            })}
-          </div>
-       
+                  </div>
+                  <div>{item.name}</div>
+                  <div>{`Rs.${item.price}`}</div>
+                  <div>{`Size ${item.size
+                    .split("]")
+                    .join("")
+                    .split("[")
+                    .join("")
+                    .trim()
+                    .split(" ")}`}</div>
+                </Link>
+              </div>
+            );
+          })}
+        </div>
       </div>
     </div>
   );
