@@ -1,18 +1,31 @@
 import React from "react";
 import navbarcss from "./Navbar.module.css";
 import { Link } from "react-router-dom";
+import { useState } from "react";
 const Navbar = () => {
+  const [temp, setTemp] = useState(false);
+  const token = JSON.parse(localStorage.getItem("token"));
+
   return (
     <div className={navbarcss.container}>
       <div className={navbarcss.childContainer}>
         <div className={navbarcss.logoSec}>
-          <Link to="/">
-            <img
-              src="https://wforwomanonline.com/images/logo.png"
-              alt="https://wforwomanonline.com/images/logo.png"
-            />
-          </Link>
+          <div
+            className={navbarcss.bergarmenu}
+            onClick={() => (temp ? setTemp(false) : setTemp(true))}
+          >
+            <i className="fa fa-bars"></i>
+          </div>
+          <div className={navbarcss.logo}>
+            <Link to="/">
+              <img
+                src="https://wforwomanonline.com/images/logo.png"
+                alt="https://wforwomanonline.com/images/logo.png"
+              />
+            </Link>
+          </div>
         </div>
+        {/* {temp ? ( */}
         <div className={navbarcss.manuSec}>
           <div className={navbarcss.manuchild}>
             <Link to="/now-trending">
@@ -173,18 +186,40 @@ const Navbar = () => {
             </Link>
           </div>
         </div>
+        {/* ) : (
+          ""
+        )} */}
+
+        {/* menu section start */}
         <div className={navbarcss.searchSec}>
           <input type="text" placeholder="Search here" />
           <i className="fa fa-search" aria-hidden="true"></i>
         </div>
         <div className={navbarcss.loginSec}>
           <div className={navbarcss.loginIcon}>
-            <i className="fa fa-user" aria-hidden="true"></i>
-            <span>LOGIN</span>
+            <Link to={token ? "/login" : "/register"}>
+              <i className="fa fa-user" aria-hidden="true"></i>
+              <span>{token ? token.name : "LOGIN"}</span>
+            </Link>
+            <div className={navbarcss.subloginsec}>
+              <div className={navbarcss.subloginchild}>
+                <Link to="/login">
+                  <span>Login</span>
+                </Link>
+                <Link to="/register">
+                  <span>Register</span>
+                </Link>
+                <span onClick={() => localStorage.removeItem("token")}>
+                  Log Out
+                </span>
+              </div>
+            </div>
           </div>
           <div className={navbarcss.cartIcon}>
-            <i className="fa fa-shopping-bag" aria-hidden="true"></i>
-            <span>Cart</span>
+            <Link to="/cart">
+              <i className="fa fa-shopping-bag" aria-hidden="true"></i>
+              <span>Cart</span>
+            </Link>
           </div>
         </div>
       </div>

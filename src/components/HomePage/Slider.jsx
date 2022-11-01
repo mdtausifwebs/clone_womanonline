@@ -12,9 +12,7 @@ let slider = [
 
 const Slider = () => {
   const [index, setindex] = useState(0);
-  console.log("index", index);
   const [temp, setTemp] = useState(false);
-  console.log("temp", temp);
   const indexcount = () => {
     setTimeout(() => {
       if (slider.length - 1 > index) {

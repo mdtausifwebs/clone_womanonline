@@ -8,14 +8,14 @@
   display: flex;
   justify-content: space-around;
   flex-wrap: wrap;
-  padding: 5px;
 }
 .sidebar {
   width: 25%;
 }
 .ProductBox {
   width: 23%;
-  border: 1px solid black;
+  margin: 10px;
+  box-shadow: 10px 10px 10px rgb(182, 178, 178);
 }
 .sidebar {
   width: 20%;
@@ -32,5 +32,9 @@
   position: absolute;
   display: flex;
   bottom: 1px;
-  background-color: red;
+  background-color: #740606;
+}
+.details p{
+  align-items: center;
+  text-align: center;
 }
