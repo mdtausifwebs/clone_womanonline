@@ -30,6 +30,9 @@ const ProductDetails = () => {
           setindex(0);
         }
       }, 1000);
+
+
+      
     };
     if (temp) {
       bigImagechange();
