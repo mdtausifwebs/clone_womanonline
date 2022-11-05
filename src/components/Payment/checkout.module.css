@@ -1,0 +1,110 @@
+.container {
+  padding: 10px;
+}
+.containerChild {
+  width: 96%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  /* border: 1px solid black; */
+  padding: 20px;
+}
+.logo {
+  width: 100%;
+}
+.logo img {
+  width: 10%;
+}
+.head {
+  display: flex;
+  justify-content: space-around;
+  border: 1px solid black;
+}
+.bar {
+  width: 70%;
+  display: flex;
+  justify-content: space-around;
+}
+.bar div {
+  width: 100%;
+  padding: 20px;
+}
+.bar div i {
+  width: 20%;
+  border-radius: 50%;
+  padding: 10px;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid black;
+}
+.coupons {
+  width: 40%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+.coupons div{
+  text-align: center;
+  align-items: center;
+}
+.details {
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+}
+.inputsec {
+  display: flex;
+  flex-direction: column;
+  padding: 15px;
+  width: 40%;
+}
+.inputsec input {
+  padding: 10px;
+  margin: 10px;
+  outline: none;
+}
+.inputsec p {
+  margin: 0px;
+  padding: 0px 0px 0px 10px;
+  font-size: 12px;
+  text-align: start;
+}
+.red {
+  color: red;
+}
+.green {
+  color: green;
+}
+.inputsec div {
+  display: flex;
+}
+
+.inputsec button {
+  width: 100%;
+}
+
+.radiobutton {
+  display: flex;
+  flex-direction: column;
+}
+.radiobutton div {
+  display: flex;
+  justify-content: space-around;
+}
+.pricesec {
+  width: 40%;
+}
+.pricesec button {
+  width: 20%;
+}
+.pricesec input {
+  width: 50%;
+  padding: 10px;
+  margin: 10px;
+}
+
+.pricesec div {
+  display: flex;
+  justify-content: space-around;
+}

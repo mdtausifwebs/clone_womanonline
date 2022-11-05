@@ -81,7 +81,7 @@ const Categorylayout = () => {
         <div className={categorycss.head}>
           <h1>FOLKSONG</h1>
         </div>
-        <div>
+        <div className={categorycss.bodyimagecss}>
           <img src={bodyimage} alt="body" />
         </div>
         <div className={categorycss.head}>

@@ -2,10 +2,11 @@ import React from "react";
 import navbarcss from "./Navbar.module.css";
 import { Link } from "react-router-dom";
 import { useState } from "react";
+import { useSelector } from "react-redux";
 const Navbar = () => {
   const [temp, setTemp] = useState(false);
   const token = JSON.parse(localStorage.getItem("token"));
-
+  const { Carts } = useSelector((state) => state);
   return (
     <div className={navbarcss.container}>
       <div className={navbarcss.childContainer}>
@@ -218,6 +219,7 @@ const Navbar = () => {
           <div className={navbarcss.cartIcon}>
             <Link to="/cart">
               <i className="fa fa-shopping-bag" aria-hidden="true"></i>
+              {Carts.length}
               <span>Cart</span>
             </Link>
           </div>

@@ -57,6 +57,7 @@ const Login = () => {
         </div>
         <div>
           <button onClick={submitHandler}>Login</button>
+          <button onClick={()=>navigate("/register")}>Register</button>
         </div>
       </div>
     </div>

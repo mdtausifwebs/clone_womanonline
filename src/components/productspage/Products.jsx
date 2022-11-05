@@ -2,7 +2,7 @@ import React from "react";
 import { useEffect } from "react";
 import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { useParams, Link } from "react-router-dom";
+import { useParams, Link} from "react-router-dom";
 import ProductSlider from "./ProductSlider";
 import Sidebar from "../NavbarSec/Sidebar";
 import Productcss from "../../StyleCss/ProductsStyle.module.css";
@@ -11,8 +11,10 @@ const Products = () => {
   const dispatch = useDispatch();
   const params = useParams().navcategory;
   const [pageNo, setPageNo] = useState(1);
-  const [pageSize, setPageSize] = useState(200);
-  const { FilterProduct } = useSelector((state) => state);
+  const [pageSize, setPageSize] = useState(20);
+  const { Products } = useSelector((state) => state);
+  // const [exitsProduct, setExitProduct] = useState();
+  // console.log(Products);
   useEffect(() => {
     dispatch({ type: "SET_LOADING", payload: true });
     let getdata = async () => {
@@ -23,14 +25,11 @@ const Products = () => {
       //   `https://pim.wforwoman.com/pim/pimresponse.php/?service=category&store=1&url_key=top-wear-sets-dresses&page=1&count=400`
       // );
       res = await res.data.result.products;
-      res
-        ? dispatch({ type: "SET_PRODUCTS", payload: res }) &&
-          dispatch({ type: "SET_FILTER_PRODUCT", payload: res }) &&
-          dispatch({ type: "SET_SUCCESS", payload: false }) &&
-          dispatch({ type: "SET_LOADING", payload: false })
-        : dispatch({ type: "SET_ERROR", payload: false });
+      // console.log('res', res);
+      localStorage.setItem("products", JSON.stringify(res));
+      dispatch({ type: "SET_PRODUCTS", payload: res });
       setPageNo(1);
-      setPageSize(200);
+      setPageSize(20);
     };
     getdata();
   }, [dispatch, pageNo, pageSize, params]);
@@ -41,7 +40,7 @@ const Products = () => {
           <Sidebar />
         </div>
         <div className={Productcss.childContainer}>
-          {FilterProduct?.map((item, i) => {
+          {Products?.map((item, i) => {
             return (
               <div key={i} className={Productcss.ProductBox}>
                 <Link to={`/details/${item.id_product}`}>

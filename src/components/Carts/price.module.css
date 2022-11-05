@@ -1,0 +1,27 @@
+.priceContainer {
+  display: flex;
+  width: 100%;
+  justify-content: space-around;
+  align-items: center;
+  border: 1px solid black;
+  box-shadow: 10px 10px 10px rgb(86, 86, 86);
+  gap: 20px;
+}
+
+.imageSec img {
+  width: 100%;
+  height: 30vh;
+}
+.detailsSec {
+  width: 40%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
+.buttonSec{
+    width: 20%;
+}
+.buttonSec button{
+    background-color: white;
+    color: black;
+}

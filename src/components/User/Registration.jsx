@@ -77,7 +77,7 @@ const Registration = () => {
         </div>
         <div>
           <button onClick={submitHandler}>Register</button>
-          <button onClick={()=>navigate("/login")}>Register</button>
+          <button onClick={()=>navigate("/login")}>Login</button>
         </div>
       </div>
     </div>
