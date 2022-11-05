@@ -130,3 +130,14 @@
   flex-wrap: wrap;
   justify-content: space-between;
 }
+@media only screen and (max-width: 400px) {
+  .sidebar {
+    display: none;
+  }
+  .childContainer{
+    width: 100%;
+  }
+  .ProductBox {
+    width: 40%;
+  }
+}

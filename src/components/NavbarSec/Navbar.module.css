@@ -197,7 +197,7 @@
 }
 @media only screen and (max-width: 400px) {
   .childContainer {
-    border: 1px solid black;
+    /* border: 1px solid black; */
     width: 100%;
     position: relative;
   }

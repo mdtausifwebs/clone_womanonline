@@ -19,7 +19,7 @@ const Productloading = loadable({
   loader: () => import("./components/productspage/Products"),
   loading: () => <div>loading....</div>,
 });
-const ProductDetailsLoading=({
+const ProductDetailsLoading=loadable({
   loader:()=>import("./components/productspage/ProductDetails"),
   loading:()=><div>loading....</div>,
 })
