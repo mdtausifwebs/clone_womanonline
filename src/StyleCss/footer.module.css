@@ -20,9 +20,9 @@
   font-size: 14px;
   font-weight: 500;
 }
-.manutext a{
-    text-decoration: none;
-    list-style:none;
+.manutext a {
+  text-decoration: none;
+  list-style: none;
 }
 .socialMedia {
   width: 100%;
@@ -34,14 +34,25 @@
   cursor: pointer;
 }
 .contactDetails {
-    width: 70%;
-    margin: auto;
+  width: 70%;
+  margin: auto;
   padding: 10px;
 }
-.contactDetails p{
-   font-size: 12px;
-   font-weight: 400;
+.contactDetails p {
+  font-size: 12px;
+  font-weight: 400;
 }
 .copyRight p {
   padding: 0;
+}
+@media only screen and (max-wirth: 400px) {
+  .manu {
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+  }
+  .manutext {
+    width: 20%;
+  }
 }
