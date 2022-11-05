@@ -1,8 +1,24 @@
 import { Link } from "react-router-dom";
 import React from "react";
 import categorycss from "../../StyleCss/homeCategory.module.css";
-let bodyimage =
-  "https://wforwoman.gumlet.io/commonsection/1648195461FolkSong-Footer-banner-desktop.jpg";
+let bodyimage = [
+  {
+    text: "W BEAUTY",
+    url: "https://wforwoman.gumlet.io/commonsection/1654861163W_BEAUTY-Footer.jpg",
+  },
+  {
+    text: "TRENDING NOW",
+    url: "https://wforwoman.gumlet.io/commonsection/1653036982W-Footwear-Footer-desktop.jpg",
+  },
+  {
+    text: "CATEGORY TO BAG",
+    url: "https://wforwoman.gumlet.io/commonsection/1654667187W-Plus-Footer-desktop.jpg",
+  },
+  {
+    text: "FOLKSONG",
+    url: "https://wforwoman.gumlet.io/commonsection/1648195461FolkSong-Footer-banner-desktop.jpg",
+  },
+];
 let TopCategory = [
   {
     url: "top-wear-sets-dresses",
@@ -67,6 +83,18 @@ const Categorylayout = () => {
             <i className="fa-regular fa-rotate-left"></i>
           </div>
         </div>
+        <div className={categorycss.head}>
+          <h1>{bodyimage[0].text}</h1>
+        </div>
+        <div className={categorycss.bodyimagecss}>
+          <img src={bodyimage[0].url} alt="body" />
+        </div>
+        <div className={categorycss.head}>
+          <h1>{bodyimage[1].text}</h1>
+        </div>
+        <div className={categorycss.bodyimagecss}>
+          <img src={bodyimage[1].url} alt="body" />
+        </div>
         <div className={categorycss.categorybox}>
           {TopCategory?.map((item, i) => {
             return (
@@ -79,10 +107,16 @@ const Categorylayout = () => {
           })}
         </div>
         <div className={categorycss.head}>
-          <h1>FOLKSONG</h1>
+          <h1>{bodyimage[2].text}</h1>
         </div>
         <div className={categorycss.bodyimagecss}>
-          <img src={bodyimage} alt="body" />
+          <img src={bodyimage[2].url} alt="body" />
+        </div>
+        <div className={categorycss.head}>
+          <h1>{bodyimage[3].text}</h1>
+        </div>
+        <div className={categorycss.bodyimagecss}>
+          <img src={bodyimage[3].url} alt="body" />
         </div>
         <div className={categorycss.head}>
           <h1>FESTIVE BUYS </h1>

@@ -47,7 +47,14 @@
   display: flex;
   justify-content: space-around;
 }
-
+.cartIcon{
+  position: relative;
+}
+.cartIcon p{
+  position: absolute;
+  top: -30px;
+  right: 5px;
+}
 .loginIcon a,
 .cartIcon a {
   display: flex;
@@ -175,11 +182,8 @@
   position: relative;
 }
 .subloginsec {
- 
   display: none;
 }
-
-
 
 .loginIcon:hover .subloginsec {
   display: flex;
@@ -188,14 +192,53 @@
   right: 1px;
   top: 20px;
 }
-.subloginchild{
+.subloginchild {
   padding: 20px;
 }
-@media only screen and (max-width: 800px) {
-  body {
-    background-color: rgb(10, 194, 255);
+@media only screen and (max-width: 400px) {
+  .childContainer {
+    border: 1px solid black;
+    width: 100%;
+    position: relative;
+  }
+  .logoSec {
+    width: 20%;
+  }
+  .logo {
+    width: 50px;
   }
   .manuSec {
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    top: 50px;
+    left: -50px;
+    z-index: 1;
+  }
+  .searchSec {
+    width: 50%;
+    display: flex;
+    border: 1px solid rgb(179, 179, 179);
+  }
+ 
+  .searchSec input {
+    width: 90%;
+  }
+  .searchSec i {
+    padding-top: 5px;
+    width: 10%;
+  }
+  .loginSec {
+    width: 30%;
+  }
+  .bergarmenu {
+    display: flex;
+  }
+}
+@media only screen and (max-width: 600px) {
+}
+@media only screen and (max-width: 800px) {
+  /* .manuSec {
     display: none;
   }
   .searchSec {
@@ -211,18 +254,5 @@
   }
   .bergarmenu {
     display: block;
-  }
-  .manuSec {
-    display: flex;
-  }
+  } */
 }
-/* @media only screen and (max-width: 600px) {
-  body {
-    background-color: rgb(120, 122, 122);
-  }
-}
-@media only screen and (max-width: 400px) {
-  body {
-    background-color: rgb(77, 0, 208);
-  }
-} */
