@@ -71,42 +71,63 @@
 .sizeListcss span {
   border: 1px solid black;
   padding: 5px;
+  cursor: pointer;
 }
 
 .buttonsec {
+  width: 100%;
   display: flex;
   justify-content: space-around;
+  border: 1px solid black;
 }
 
-.buttonsec button {
-  width: 40%;
-  color: white;
+.incrementbtn {
+  width: 20%;
+  /* border: 1px solid black; */
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  text-align: center;
 }
-.inputPiCode{
+.incrementbtn button{
+  background-color: rgb(212, 206, 206);
+}
+.incrementbtn span{
+  width: 50%;
+  background-color: rgb(177, 172, 172);
+  font-size: 1.5rem;
+}
+.buynowCartBtn {
+  width: 70%;
+  /* border: 1px solid black; */
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  text-align: center;
+}
+.buynowCartBtn button{
+  width: 40%;
+ border: 1px solid black;
+ font-size: 1rem;
+ background-color: rgb(187, 7, 7);
+ color: white;
+}
+.inputPiCode {
   display: flex;
   justify-content: space-around;
   flex-direction: column;
   text-align: start;
 }
-.inputPiCode input{
+.inputPiCode input {
   padding: 5px;
   width: 50%;
 }
-.pinError{
+.pinError {
   color: red;
 }
-
-
-
-
-
-
-
-
-
-
-
-
+.pintrue {
+  color: green;
+}
 .deleveryProductDetails {
   display: flex;
   flex-wrap: wrap;
@@ -125,19 +146,79 @@
 }
 /* similar product */
 .product_container {
+  position: relative;
   display: flex;
   width: 100%;
   flex-wrap: wrap;
   justify-content: space-between;
 }
+.popup {
+  position: absolute;
+  right: 1rem;
+  top: -50rem;
+  width: 25%;
+  z-index: 1;
+  background-color: white;
+  padding: 0.5rem;
+}
+
+.img_details {
+  position: relative;
+  align-items: center;
+}
+.img_details .details {
+  display: none;
+}
+.img_details:hover .details {
+  width: 100%;
+  position: absolute;
+  display: flex;
+  bottom: 1px;
+  background-color: #740606;
+}
+.details p {
+  align-items: center;
+  text-align: center;
+}
 @media only screen and (max-width: 400px) {
+  .container {
+    width: 100%;
+    justify-content: space-around;
+    flex-wrap: wrap;
+  }
   .sidebar {
     display: none;
   }
-  .childContainer{
+  .childContainer {
     width: 100%;
   }
   .ProductBox {
     width: 40%;
+  }
+  .smallimage {
+    width: 20%;
+  }
+  .bigimage {
+    width: 80%;
+  }
+  .bigimage img {
+    width: 99%;
+  }
+  .inputPiCode {
+    width: 100%;
+    text-align: center;
+    align-items: center;
+  }
+  .textcss {
+    padding: 10px;
+  }
+  .productdetailsSex {
+    width: 100%;
+  }
+  .product_container {
+    width: 100%;
+  }
+  .product_box {
+    width: 99%;
   }
 }

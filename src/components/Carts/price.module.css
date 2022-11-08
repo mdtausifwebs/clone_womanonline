@@ -3,9 +3,13 @@
   width: 100%;
   justify-content: space-around;
   align-items: center;
-  border: 1px solid black;
-  box-shadow: 10px 10px 10px rgb(86, 86, 86);
   gap: 20px;
+  /* border: 1px solid black; */
+}
+.priceContainer div{
+  display: flex;
+  width: 100%;
+  justify-content: space-around;
 }
 
 .imageSec img {
@@ -18,10 +22,42 @@
   flex-direction: column;
   justify-content: space-around;
 }
-.buttonSec{
-    width: 20%;
+.detailsSec button{
+  background-color: white;
+  color: black;
+  font-size: 1rem;
 }
-.buttonSec button{
-    background-color: white;
-    color: black;
+.buttonSec {
+  width: 20%;
+  display: flex;
+}
+.buttonSec button {
+  width: 40%;
+  background-color: rgb(255, 255, 255);
+  color: black;
+}
+p {
+  width: 40%;
+  /* background-color: rgb(197, 195, 195); */
+  color: black;
+  /* border: 1px solid black; */
+  align-items: center;
+  text-align: center;
+}
+button {
+  background-color: white;
+  color: black;
+}
+@media only screen and (max-width: 400px) {
+  .priceContainer{
+    display: flex;
+    flex-direction: column;
+  }
+  .pricesex{
+    display: flex;
+    flex-direction: column;
+  }
+  .imageSec img{
+    height: 50vh;
+  }
 }

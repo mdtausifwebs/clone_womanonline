@@ -2,7 +2,7 @@ import React from "react";
 import { useEffect } from "react";
 import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { useParams, Link} from "react-router-dom";
+import { useParams, Link } from "react-router-dom";
 import ProductSlider from "./ProductSlider";
 import Sidebar from "../NavbarSec/Sidebar";
 import Productcss from "../../StyleCss/ProductsStyle.module.css";
@@ -11,12 +11,10 @@ const Products = () => {
   const dispatch = useDispatch();
   const params = useParams().navcategory;
   const [pageNo, setPageNo] = useState(1);
-  const [pageSize, setPageSize] = useState(20);
+  const [pageSize, setPageSize] = useState(200);
   const { Products } = useSelector((state) => state);
-  // const [exitsProduct, setExitProduct] = useState();
-  // console.log(Products);
+  // console.log('Products', Products);
   useEffect(() => {
-    dispatch({ type: "SET_LOADING", payload: true });
     let getdata = async () => {
       let res = await axios.get(
         `https://pim.wforwoman.com/pim/pimresponse.php/?service=category&store=1&url_key=${params}&page=${pageNo}&count=${pageSize}`
@@ -25,14 +23,16 @@ const Products = () => {
       //   `https://pim.wforwoman.com/pim/pimresponse.php/?service=category&store=1&url_key=top-wear-sets-dresses&page=1&count=400`
       // );
       res = await res.data.result.products;
-      // console.log('res', res);
-      localStorage.setItem("products", JSON.stringify(res));
       dispatch({ type: "SET_PRODUCTS", payload: res });
       setPageNo(1);
-      setPageSize(20);
+      setPageSize(200);
     };
     getdata();
   }, [dispatch, pageNo, pageSize, params]);
+  const detailsProduct = (item) => {
+    dispatch({ type: "SET_DETAILS", payload: item });
+  };
+
   return (
     <div>
       <div className={Productcss.container}>
@@ -43,8 +43,11 @@ const Products = () => {
           {Products?.map((item, i) => {
             return (
               <div key={i} className={Productcss.ProductBox}>
-                <Link to={`/details/${item.id_product}`}>
-                  <div className={Productcss.img_details}>
+                <Link
+                  to={`/details/${item.id_product}`}
+                  onClick={() => detailsProduct(item)}
+                >
+                  <div  className={Productcss.img_details}>
                     <ProductSlider images={item.gallery} />
                     <div className={Productcss.details}>
                       <p>VIEW DETAILS</p>
@@ -52,7 +55,7 @@ const Products = () => {
                   </div>
                   <div>{item.name}</div>
                   <div>{`Rs.${item.price}`}</div>
-                  <div>{`Size ${item.size
+                  <div className={Productcss.sizecss}>{`Size ${item.size
                     .split("]")
                     .join("")
                     .split("[")

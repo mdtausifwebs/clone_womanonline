@@ -9,8 +9,12 @@ export const ProductReducer = (state = initialState, action) => {
     case "SET_PRODUCTS":
       return {
         ...state,
-        Products:
-          JSON.parse(localStorage.getItem("products")) || action.payload,
+        Products: action.payload,
+      };
+    case "SET_DETAILS":
+      return {
+        ...state,
+        Details: action.payload,
       };
     case "SET_CART":
       return {

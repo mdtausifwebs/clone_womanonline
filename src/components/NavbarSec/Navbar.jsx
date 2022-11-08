@@ -5,9 +5,9 @@ import { useState } from "react";
 import { useSelector } from "react-redux";
 const Navbar = () => {
   const [temp, setTemp] = useState(false);
-  console.log('temp', temp);
   const token = JSON.parse(localStorage.getItem("token"));
-  const { Carts } = useSelector((state) => state);
+  // const { Carts } = useSelector((state) => state);
+  const Carts = JSON.parse(localStorage.getItem("Carts"));
   return (
     <div className={navbarcss.container}>
       <div className={navbarcss.childContainer}>
@@ -188,9 +188,7 @@ const Navbar = () => {
               </Link>
             </div>
           </div>
-        ) : (
-          null
-        )}
+        ) : null}
 
         {/* menu section start */}
 
@@ -221,7 +219,7 @@ const Navbar = () => {
           <div className={navbarcss.cartIcon}>
             <Link to="/cart">
               <i className="fa fa-shopping-bag" aria-hidden="true"></i>
-              <p>{Carts.length}</p>
+              {/* <p>{Carts.length}</p> */}
               <span>Cart</span>
             </Link>
           </div>
