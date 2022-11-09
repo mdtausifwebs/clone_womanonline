@@ -89,10 +89,10 @@
   align-items: center;
   text-align: center;
 }
-.incrementbtn button{
+.incrementbtn button {
   background-color: rgb(212, 206, 206);
 }
-.incrementbtn span{
+.incrementbtn span {
   width: 50%;
   background-color: rgb(177, 172, 172);
   font-size: 1.5rem;
@@ -105,12 +105,12 @@
   align-items: center;
   text-align: center;
 }
-.buynowCartBtn button{
+.buynowCartBtn button {
   width: 40%;
- border: 1px solid black;
- font-size: 1rem;
- background-color: rgb(187, 7, 7);
- color: white;
+  border: 1px solid black;
+  font-size: 1rem;
+  background-color: rgb(187, 7, 7);
+  color: white;
 }
 .inputPiCode {
   display: flex;
@@ -220,5 +220,10 @@
   }
   .product_box {
     width: 99%;
+  }
+  .popup {
+    width: 80%;
+    position: absolute;
+    top: -80rem;
   }
 }

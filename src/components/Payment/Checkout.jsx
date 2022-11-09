@@ -1,10 +1,10 @@
 import React from "react";
 import checkoutcss from "./checkout.module.css";
-import { useSelector } from "react-redux";
+// import { useSelector } from "react-redux";
 import { useState } from "react";
 import { useEffect } from "react";
 const Checkout = () => {
-  const { Carts } = useSelector((state) => state);
+  // const { Carts } = useSelector((state) => state);
   const [mobile, setmobile] = useState();
   const [name, setname] = useState();
   const [address, setaddress] = useState();
@@ -14,8 +14,11 @@ const Checkout = () => {
   const [email, setemail] = useState();
   const [valid, setvalid] = useState(true);
   const [errors, setErrors] = useState("");
-  const [copon, setcopon] = useState();
+  const [copon, setcopon] = useState(false);
   const [addressdata, setaddressdata] = useState([]);
+  let CartsPrice = JSON.parse(localStorage.getItem("CartsPrice"));
+  let Cartdata = JSON.parse(localStorage.getItem("Cartdata"));
+
   const ContinueHandler = () => {
     const addressobj = {
       name,
@@ -40,40 +43,42 @@ const Checkout = () => {
       : setErrors("Please enter valid Pin code");
   }, [pincode, valid]);
   const cuponsValide = () => {
-    if (copon === "tausif") {
-      console.log("copon valide");
+    if (!copon) {
+      alert("Please Enter Valid Coupon code");
     } else {
-      console.log("copon not valide");
+      CartsPrice = CartsPrice - (CartsPrice * 10) / 100;
+      localStorage.setItem("CartsPrice", JSON.stringify(CartsPrice));
+      alert(
+        `total: ${CartsPrice} Discount:${Math.floor(
+          (CartsPrice * 10) / 100
+        )} final price ${Math.floor(CartsPrice - (CartsPrice * 10) / 100)}`
+      );
     }
+  };
+  const removeHndler = () => {
+    console.log("removeHndler");
   };
   return (
     <div className={checkoutcss.container}>
+      <div className={checkoutcss.logo}>
+        <img src="https://wforwomanonline.com/images/logo.png" alt="" />
+      </div>
       <div className={checkoutcss.containerChild}>
-        <div className={checkoutcss.logo}>
-          <img src="https://wforwomanonline.com/images/logo.png" alt="" />
-        </div>
-        <div className={checkoutcss.head}>
+        <div className={checkoutcss.details}>
           <div className={checkoutcss.bar}>
-            <div>
+            <div className={checkoutcss.carts}>
               <i className="fa fa-arrow-left" aria-hidden="true"></i>
               <span>CART</span>
             </div>
-            <div>
+            <div className={checkoutcss.shop}>
               <i className="fa fa-arrow-left" aria-hidden="true"></i>
               <span>SHIPPING</span>
             </div>
-            <div>
+            <div className={checkoutcss.pay}>
               <i className="fa fa-arrow-left" aria-hidden="true"></i>
-              <span>REVIEW & PAY</span>
+              <span >REVIEW & PAY</span>
             </div>
           </div>
-          <div className={checkoutcss.coupons}>
-            <div>
-              <div>APPLY DISCOUNT COUPON</div>
-            </div>
-          </div>
-        </div>
-        <div className={checkoutcss.details}>
           <div className={checkoutcss.inputsec}>
             <h2>LOGIN OR CHECKOUT AS GUEST</h2>
             <input
@@ -132,41 +137,59 @@ const Checkout = () => {
               <button onClick={ContinueHandler}>CONTINUE</button>
             </div>
           </div>
-          <div className={checkoutcss.pricesec}>
+        </div>
+        <div className={checkoutcss.pricesec}>
+          <div className={checkoutcss.coupons}>
             <div>
-              <input
-                type="text"
-                placeholder="Enter coupon code"
-                onChange={(e) => setcopon(e.target.value)}
-              />
-              <button onClick={cuponsValide}>APPLY</button>
+              <div>APPLY DISCOUNT COUPON</div>
             </div>
-            <div>
-              <h3>ORDER SUMMARY</h3>
-              <h4>Edit Cart</h4>
-            </div>
-            <div>
-              {Carts.map((item) => {
-                return (
-                  <div>
-                    <img src={item.gallery[0].image} alt="cartimage" />
-                    <span>{item.name}</span>
+          </div>
+          <div>
+            <input
+              type="text"
+              placeholder="Enter coupon code"
+              onChange={(e) =>
+                e.target.value === "tausif" ? setcopon(true) : setcopon(false)
+              }
+            />
+            <button onClick={cuponsValide}>APPLY</button>
+          </div>
+          <div>
+            <h3>ORDER SUMMARY</h3>
+            <h4>Edit Cart</h4>
+          </div>
+          <div className={checkoutcss.productSec}>
+            {Cartdata?.map((item, i) => {
+              return (
+                <div className={checkoutcss.cartpopproduct} key={i}>
+                  <div className={checkoutcss.imgSec}>
+                    <img src={item.image} alt="" />
                   </div>
-                );
-              })}
-            </div>
-            <div>
-              <h3>Sub Total</h3>
-              <h4>Rs. 6464646</h4>
-            </div>
-            <div>
-              <h3>Discount</h3>
-              <h4>Rs. 6464646</h4>
-            </div>
-            <div>
-              <h3>Order Total</h3>
-              <h4>Rs. 6464646</h4>
-            </div>
+                  <div className={checkoutcss.textSec}>
+                    <span>{item.name}</span>
+                    <span>{`RS. ${item.price}`}</span>
+                    <span>{`SIZE ${item.size}`}</span>
+                    <span>{`QTY ${item.quentity}`}</span>
+                    <button onClick={() => removeHndler(item.id)}>
+                      <i className="fa fa-trash-o"></i>
+                      <span>Remove</span>
+                    </button>
+                  </div>
+                </div>
+              );
+            })}
+          </div>
+          <div>
+            <h3>Sub Total</h3>
+            <h4> {`Rs. ${Math.floor(CartsPrice)}`}</h4>
+          </div>
+          <div>
+            <h3>Discount</h3>
+            <h4> {`Rs. 00.0`}</h4>
+          </div>
+          <div>
+            <h3>Order Total</h3>
+            <h4> {`Rs. ${Math.floor(CartsPrice)}`}</h4>
           </div>
         </div>
       </div>

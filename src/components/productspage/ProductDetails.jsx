@@ -55,19 +55,12 @@ const ProductDetails = () => {
   }, [currentProduct, temp, Products, index, params]);
 
   const AddtoCart = () => {
-    pop ? setpop(false) : setpop(true);
-
     //start total cart price option
-    let totalprice =
-      Number(JSON.parse(localStorage.getItem("CartsPrice"))) +
-      Number(currentProduct.price);
-    dispatch({
-      type: "SET_CARTS_PRICE",
-      payload: totalprice,
-    });
-    localStorage.setItem("CartsPrice", JSON.stringify(totalprice));
+    let data = JSON.parse(localStorage.getItem("Cartdata")) || [];
+    let cartprice = Number(JSON.parse(localStorage.getItem("CartsPrice")));
     // end total cart price
     // product add to carts  start
+
     if (!currentProduct || !selectsize || !increment) {
       alert("select all required option");
     } else {
@@ -75,40 +68,45 @@ const ProductDetails = () => {
         id: currentProduct.id_product,
         name: currentProduct.name,
         size: selectsize,
+        image: currentProduct.image,
         quentity: increment,
-        price: currentProduct.price,
+        price: Number(currentProduct.price),
       };
-      console.log(proObj);
-      let data = JSON.parse(localStorage.getItem("Carts")) || [];
-      setCarts(data);
       if (data.length === 0) {
-        data = [...Carts, currentProduct];
-        setCarts(...Carts, currentProduct);
-        localStorage.setItem("Carts", JSON.stringify(data));
+        data = [...data, proObj];
+        setCarts(...Carts, proObj);
+        let totalprice = cartprice + Number(currentProduct.price);
+        localStorage.setItem("CartsPrice", JSON.stringify(totalprice));
+        localStorage.setItem("Cartdata", JSON.stringify(data));
+
         dispatch({
           type: "SET_CARTS_PRICE",
           payload: CartPrice + Number(currentProduct.price),
         });
+        pop ? setpop(false) : setpop(true);
       } else if (data.length >= 1) {
-        // const temp = data.find((item) => {
-        //   return item.id_product === currentProduct.id_product;
-        // });
-        // if (!temp) {
-        //   data = [...data, currentProduct];
-        //   setCarts(...Carts, currentProduct);
-        //   localStorage.setItem("Carts", JSON.stringify(data));
-        //   dispatch({
-        //     type: "SET_CARTS_PRICE",
-        //     payload: CartPrice + Number(currentProduct.price),
-        //   });
-        // }
+        const temp = data.find((item) => {
+          return item.id === currentProduct.id_product;
+        });
+        if (!temp) {
+          data = [...data, proObj];
+          setCarts(...Carts, proObj);
+          let totalprice = cartprice + Number(currentProduct.price);
+          localStorage.setItem("CartsPrice", JSON.stringify(totalprice));
+          localStorage.setItem("Cartdata", JSON.stringify(data));
+
+          dispatch({
+            type: "SET_CARTS_PRICE",
+            payload: CartPrice + Number(currentProduct.price),
+          });
+          pop ? setpop(false) : setpop(true);
+        }
       }
     }
   };
 
   const BuyNow = () => {
-    console.log("BuyNow");
-    navigatelink("/buy");
+    navigatelink("/checkout");
   };
 
   const [valid, setvalid] = useState(false);

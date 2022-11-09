@@ -54,15 +54,17 @@ const Footer = () => {
           <i className="fa fa-whatsapp" aria-hidden="true"></i>
         </div>
         <div className={footercss.contactDetails}>
-          <p>
-            Email Us - customercare@tcnsclothing.com or call us at
-            +91-7583896939 or WhatsApp at +91-8448198618 (from 10 AM to 6 PM,
-            Mon to Sun). We are closed on bank holidays.
-          </p>
+          <address>
+            <span>Email Us - customercare@tcnsclothing.com</span> or
+            <span>call us at +91-7583896939 or WhatsApp at +91-8448198618</span>
+            <span>
+              (from 10 AM to 6 PM, Mon to Sun). We are closed on bank holidays.
+            </span>
+          </address>
         </div>
       </div>
       <div className={footercss.copyRight}>
-        <p>© Copyright 2021 W. All Rights Reserved.</p>
+        <span>© Copyright 2021 W. All Rights Reserved.</span>
       </div>
     </div>
   );

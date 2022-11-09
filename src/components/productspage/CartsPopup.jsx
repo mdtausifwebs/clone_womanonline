@@ -1,22 +1,39 @@
 import React from "react";
 import cartpopupcss from "../../StyleCss/cartpopup.module.css";
+import { useNavigate } from "react-router-dom";
 const CartsPopup = ({ closepopup }) => {
-  const data = JSON.parse(localStorage.getItem("Carts"));
+  const data = JSON.parse(localStorage.getItem("Cartdata"));
+  const CartsPrice = JSON.parse(localStorage.getItem("CartsPrice"));
+  const navigate = useNavigate();
   const removeHndler = (id) => {
     let removeProduct = data.filter((item) => {
       return item.id_product !== id;
     });
-    localStorage.setItem("Carts", JSON.stringify(removeProduct));
+    localStorage.setItem("Cartdata", JSON.stringify(removeProduct));
+    localStorage.setItem(
+      "CartsPrice",
+      JSON.stringify(CartsPrice - Number(removeProduct.price))
+    );
+  };
+  const navigates = () => {
+    navigate("/cart");
+  };
+  const navigtorcheckout = () => {
+    navigate("/checkout");
   };
   return (
     <div className={cartpopupcss.container}>
-        <i onClick={closepopup} className="fa fa-close" id={cartpopupcss.iconcrose}></i>
+      <i
+        onClick={closepopup}
+        className="fa fa-close"
+        id={cartpopupcss.iconcrose}
+      ></i>
       <div className={cartpopupcss.subtotal}>
-        <span>{`item in carts : 10`}</span>
-        <span>{`Cart subTotal : 10201`}</span>
+        <span>{`item in carts : ${data ? data.length : 0}`}</span>
+        <span>{`Cart subTotal : ${CartsPrice}`}</span>
       </div>
       <div>
-        <button>CHECKOUT</button>
+        <button onClick={navigtorcheckout}>CHECKOUT</button>
       </div>
       <div className={cartpopupcss.itemsec}>
         {data?.map((item, i) => {
@@ -27,8 +44,9 @@ const CartsPopup = ({ closepopup }) => {
               </div>
               <div className={cartpopupcss.textSec}>
                 <span>{item.name}</span>
-                <span>{item.size}</span>
-                <span>{item.quentity}</span>
+                <span>{`RS. ${item.price}`}</span>
+                <span>{`SIZE ${item.size}`}</span>
+                <span>{`QTY ${item.quentity}`}</span>
                 <button onClick={() => removeHndler(item.id_product)}>
                   <i className="fa fa-trash-o"></i>
                   <span>Remove</span>
@@ -38,8 +56,8 @@ const CartsPopup = ({ closepopup }) => {
           );
         })}
       </div>
-      <div>
-        <button>VIEW AND EDIT CART</button>
+      <div className={cartpopupcss.viewcarts}>
+        <button onClick={navigates}>VIEW AND EDIT CART</button>
       </div>
     </div>
   );
