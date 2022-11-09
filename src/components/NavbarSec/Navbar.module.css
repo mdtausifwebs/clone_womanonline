@@ -204,6 +204,9 @@
   .logoSec {
     width: 20%;
   }
+  .manuSec{
+    display: none;
+  }
   .logo {
     width: 50px;
   }

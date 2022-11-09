@@ -1,6 +1,6 @@
 const initialState = {
   Products: [],
-  Details: [],
+  Alldata: [],
   Carts: [],
   CartPrice: 0,
 };
@@ -10,6 +10,11 @@ export const ProductReducer = (state = initialState, action) => {
       return {
         ...state,
         Products: action.payload,
+      };
+    case "SET_ALLDATA":
+      return {
+        ...state,
+        Alldata: action.payload,
       };
     case "SET_DETAILS":
       return {

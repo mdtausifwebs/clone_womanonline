@@ -2,12 +2,12 @@ import React from "react";
 import navbarcss from "./Navbar.module.css";
 import { Link } from "react-router-dom";
 import { useState } from "react";
-import { useSelector } from "react-redux";
+// import { useSelector } from "react-redux";
 const Navbar = () => {
-  const [temp, setTemp] = useState(false);
+  const [temp, setTemp] = useState(true);
   const token = JSON.parse(localStorage.getItem("token"));
   // const { Carts } = useSelector((state) => state);
-  const Carts = JSON.parse(localStorage.getItem("Carts"));
+  const Cartsdata = JSON.parse(localStorage.getItem("Cartsdata"));
   return (
     <div className={navbarcss.container}>
       <div className={navbarcss.childContainer}>
@@ -27,7 +27,7 @@ const Navbar = () => {
             </Link>
           </div>
         </div>
-        {temp ? (
+        {/* {temp ? ( */}
           <div className={navbarcss.manuSec}>
             <div className={navbarcss.manuchild}>
               <Link to="/now-trending">
@@ -188,7 +188,7 @@ const Navbar = () => {
               </Link>
             </div>
           </div>
-        ) : null}
+        {/* ) : null} */}
 
         {/* menu section start */}
 
@@ -219,7 +219,7 @@ const Navbar = () => {
           <div className={navbarcss.cartIcon}>
             <Link to="/cart">
               <i className="fa fa-shopping-bag" aria-hidden="true"></i>
-              {/* <p>{Carts.length}</p> */}
+              <p>{Cartsdata ? Cartsdata.length : "0"}</p>
               <span>Cart</span>
             </Link>
           </div>

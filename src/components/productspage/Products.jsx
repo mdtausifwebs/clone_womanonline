@@ -10,8 +10,8 @@ import axios from "axios";
 const Products = () => {
   const dispatch = useDispatch();
   const params = useParams().navcategory;
-  const [pageNo, setPageNo] = useState(1);
-  const [pageSize, setPageSize] = useState(200);
+  const [pageNo, setPageNo] = useState(4);
+  const [pageSize, setPageSize] = useState(400);
   const { Products } = useSelector((state) => state);
   // console.log('Products', Products);
   useEffect(() => {
@@ -24,6 +24,7 @@ const Products = () => {
       // );
       res = await res.data.result.products;
       dispatch({ type: "SET_PRODUCTS", payload: res });
+      dispatch({ type: "SET_ALLDATA", payload: res });
       setPageNo(1);
       setPageSize(200);
     };

@@ -45,32 +45,29 @@
 }
 @media only screen and (max-width: 400px) {
   .manu {
-    width: 92%;
+    width: 100%;
     display: flex;
     justify-content: space-around;
     flex-wrap: wrap;
   }
-  .manutext {
-    font-size: 14px;
+  .manutext{
+    width: 30%;
+  }
+  .manutext a{
     font-weight: 500;
-    padding: 5px;
+    font-size: .8rem;
   }
   .contactDetails {
-    border: 1px solid black;
-    align-items: center;
-    text-align: center;
-    width: 90%;
     display: flex;
+    flex-direction: column;
     justify-content: center;
-    padding: 0;
-    margin: 0;
+    font-size: 1rem;
+    padding: 1rem;
+    font-size: 0.75rem;
   }
   .copyRight {
-    border: 1px solid black;
-    align-items: center;
-    text-align: center;
-    width: 90%;
-    padding: 0;
-    margin: 0;
+    font-size: 1rem;
+    padding: 1rem;
+    font-size: 0.75rem;
   }
 }
