@@ -14,6 +14,7 @@ const Products = () => {
   const [pageSize, setPageSize] = useState(400);
   const { Products } = useSelector((state) => state);
   // console.log('Products', Products);
+
   useEffect(() => {
     let getdata = async () => {
       let res = await axios.get(
@@ -23,13 +24,15 @@ const Products = () => {
       //   `https://pim.wforwoman.com/pim/pimresponse.php/?service=category&store=1&url_key=top-wear-sets-dresses&page=1&count=400`
       // );
       res = await res.data.result.products;
+     
       dispatch({ type: "SET_PRODUCTS", payload: res });
       dispatch({ type: "SET_ALLDATA", payload: res });
       setPageNo(1);
-      setPageSize(200);
+      setPageSize(400);
     };
+
     getdata();
-  }, [dispatch, pageNo, pageSize, params]);
+  }, [dispatch, pageNo, pageSize, params, Products]);
   const detailsProduct = (item) => {
     dispatch({ type: "SET_DETAILS", payload: item });
   };
@@ -48,7 +51,7 @@ const Products = () => {
                   to={`/details/${item.id_product}`}
                   onClick={() => detailsProduct(item)}
                 >
-                  <div  className={Productcss.img_details}>
+                  <div className={Productcss.img_details}>
                     <ProductSlider images={item.gallery} />
                     <div className={Productcss.details}>
                       <p>VIEW DETAILS</p>
