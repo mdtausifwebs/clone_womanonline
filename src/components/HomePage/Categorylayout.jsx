@@ -77,6 +77,7 @@ let FESTIVEBUYS = [
       "https://wforwomanonline.com/_nuxt/img/budget-buys-W-drape6.29f8213.jpg",
   },
 ];
+
 const Categorylayout = () => {
   return (
     <div className={categorycss.main_container}>
@@ -109,6 +110,8 @@ const Categorylayout = () => {
         {/* <div className={categorycss.head}>
           <h1>{bodyimage[0].text}</h1>
         </div> */}
+
+
         <div className={categorycss.bodyimagecss}>
           <Link to={bodyimage[0].url}>
             <img src={bodyimage[0].imageurl} alt="body" />
