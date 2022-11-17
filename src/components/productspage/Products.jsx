@@ -5,7 +5,7 @@ import { useDispatch, useSelector } from "react-redux";
 import {  Link, useParams } from "react-router-dom";
 import ProductSlider from "./ProductSlider";
 import Sidebar from "../NavbarSec/Sidebar";
-import Productcss from "../../StyleCss/ProductsStyle.module.css";
+import Productcss from "../../StyleCss/Products.module.css";
 import axios from "axios";
 const Products = () => {
   const dispatch = useDispatch();
@@ -15,8 +15,6 @@ const Products = () => {
   const { Products } = useSelector((state) => state);
   // console.log('Alldata', Alldata);
   console.log('Products', Products);
-
-
   useEffect(() => {
     let getdata = async () => {
       let res = await axios.get(

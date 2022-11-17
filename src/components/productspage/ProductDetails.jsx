@@ -4,6 +4,7 @@ import { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { useNavigate, useParams } from "react-router-dom";
 import productdetailcss from "../../StyleCss/productdetail.module.css";
+// import Productcss from "../../StyleCss/Products.module.css";
 import CartsPopup from "./CartsPopup";
 const ProductDetails = () => {
   const dispatch = useDispatch();
