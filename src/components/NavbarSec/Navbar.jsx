@@ -1,23 +1,21 @@
 import React from "react";
 import navbarcss from "./Navbar.module.css";
 import { Link } from "react-router-dom";
-import { useState } from "react";
-import axios from "axios";
-import { useEffect } from "react";
-// import { useSelector } from "react-redux";
+// import axios from "axios";
+// import { useEffect } from "react";
 const Navbar = () => {
   const token = JSON.parse(localStorage.getItem("token"));
   const Cartsdata = JSON.parse(localStorage.getItem("Cartsdata"));
-  useEffect(() => {
-    const getdata = async () => {
-      let res = await axios.get(
-        "https://pim.wforwoman.com/pim/pimresponse.php/?service=category&store=1&url_key=top-wear&page=1&count=400"
-      );
-      res = res.data;
-      // console.log("res", res);
-    };
-    getdata();
-  }, []);
+  // useEffect(() => {
+  //   const getdata = async () => {
+  //     let res = await axios.get(
+  //       "https://pim.wforwoman.com/pim/pimresponse.php/?service=category&store=1&url_key=top-wear&page=1&count=400"
+  //     );
+  //     res = res.data;
+  //   };
+  //   getdata();
+  // }, []);
+  
   return (
     <div className={navbarcss.container}>
       <div className={navbarcss.childContainer}>
