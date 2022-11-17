@@ -2,7 +2,7 @@ import React from "react";
 import { useEffect } from "react";
 import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { useParams, Link } from "react-router-dom";
+import {  Link, useParams } from "react-router-dom";
 import ProductSlider from "./ProductSlider";
 import Sidebar from "../NavbarSec/Sidebar";
 import Productcss from "../../StyleCss/ProductsStyle.module.css";
@@ -11,9 +11,11 @@ const Products = () => {
   const dispatch = useDispatch();
   const params = useParams().navcategory;
   const [pageNo, setPageNo] = useState(4);
-  const [pageSize, setPageSize] = useState(400);
+  const [pageSize, setPageSize] = useState(200);
   const { Products } = useSelector((state) => state);
-  // console.log('Products', Products);
+  // console.log('Alldata', Alldata);
+  console.log('Products', Products);
+
 
   useEffect(() => {
     let getdata = async () => {
@@ -24,15 +26,13 @@ const Products = () => {
       //   `https://pim.wforwoman.com/pim/pimresponse.php/?service=category&store=1&url_key=top-wear-sets-dresses&page=1&count=400`
       // );
       res = await res.data.result.products;
-     
-      dispatch({ type: "SET_PRODUCTS", payload: res });
       dispatch({ type: "SET_ALLDATA", payload: res });
       setPageNo(1);
-      setPageSize(400);
+      setPageSize(200);
     };
 
     getdata();
-  }, [dispatch, pageNo, pageSize, params, Products]);
+  }, [dispatch, pageNo, pageSize, params]);
   const detailsProduct = (item) => {
     dispatch({ type: "SET_DETAILS", payload: item });
   };

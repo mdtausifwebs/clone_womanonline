@@ -47,9 +47,9 @@ const ProductDetails = () => {
       let product = Products.find((item) => {
         return item.id_product === params.productid;
       });
-      if (!product) {
+      if (product) {
+        setproductdetail(product);
       }
-      setproductdetail(product);
     };
     findProduct();
   }, [currentProduct, temp, Products, index, params]);

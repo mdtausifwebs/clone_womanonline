@@ -35,20 +35,24 @@
   background-color: #740606;
 }
 .details p {
+  width: 100%;
   align-items: center;
   text-align: center;
+  text-align: center;
+  color: white;
+  font-size: 1.5rem;
 }
 @media only screen and (max-width: 400px) {
   .sidebar {
     display: none;
   }
-  .childContainer{
+  .childContainer {
     width: 100%;
   }
   .ProductBox {
     width: 44%;
   }
-  .sizecss{
+  .sizecss {
     width: 100%;
     overflow: hidden;
   }

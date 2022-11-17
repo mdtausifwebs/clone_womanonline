@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import Styles from "../../StyleCss/Sidebar.module.css";
 const Sidebar = () => {
-  const { Products, Alldata } = useSelector((state) => state);
+  const { Alldata } = useSelector((state) => state);
   const [toggle, setToggle] = useState("");
   const [arr, setarr] = useState([]);
   const dispatch = useDispatch();
@@ -25,7 +25,7 @@ const Sidebar = () => {
   // price sort
   const priceSortHandler = (type) => {
     if (type === "low") {
-      let filter = Products.filter((item) => {
+      let filter = Alldata.filter((item) => {
         return item.price <= 2000;
       });
       let sort = filter.sort((a, b) => {
@@ -33,7 +33,7 @@ const Sidebar = () => {
       });
       dispatch({ type: "SET_PRODUCTS", payload: sort });
     } else {
-      let filter = Products.filter((item) => {
+      let filter = Alldata.filter((item) => {
         return item.price >= 2000;
       });
       let sort = filter.sort((a, b) => {
@@ -68,7 +68,7 @@ const Sidebar = () => {
   const OccasionshowHandler = () => {};
   const ChuridarSalwarSortbtm = () => {};
   const PalazzosPantsSortbtn = () => {};
-  // fabric sort 
+  // fabric sort
   const fabricfamilyCategoryHandler = (type) => {
     let sort = Alldata.filter((item) => {
       return item.fabric_family === type;
@@ -76,13 +76,13 @@ const Sidebar = () => {
     dispatch({ type: "SET_PRODUCTS", payload: sort });
     console.log(sort);
   };
-  const ClosureHandler=(type)=>{
+  const ClosureHandler = (type) => {
     let sort = Alldata.filter((item) => {
       return item.closure === type;
     });
     dispatch({ type: "SET_PRODUCTS", payload: sort });
     console.log(sort);
-  }
+  };
   return (
     <div className={Styles.sidebar_container}>
       <div className={Styles.sidebar}>
@@ -277,16 +277,12 @@ const Sidebar = () => {
             </div>
             {toggle === "Closure" ? (
               <div className={Styles.categoryesBtnheading}>
-                <button onClick={() => ClosureHandler("Button")}>
-                  Button
-                </button>
+                <button onClick={() => ClosureHandler("Button")}>Button</button>
                 <button onClick={() => ClosureHandler("Zip")}>Zip</button>
                 <button onClick={() => ClosureHandler("Side Zip")}>
                   Side Zip
                 </button>
-                <button onClick={() => ClosureHandler("Zipper")}>
-                  Zipper
-                </button>
+                <button onClick={() => ClosureHandler("Zipper")}>Zipper</button>
                 <button onClick={() => ClosureHandler("Slip-on")}>
                   Slip On
                 </button>
