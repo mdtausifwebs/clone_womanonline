@@ -15,13 +15,13 @@ const Sidebar = () => {
     }
   };
   // category sort
-  const categorySortHandler = (type) => {
-    let sort = Alldata.filter(
-      (item) => item.category === "Pants" || item.category === "Palazzos"
-    );
-    dispatch({ type: "SET_PRODUCTS", payload: sort });
-    console.log("sort", sort);
-  };
+  // const categorySortHandler = (type) => {
+  //   let sort = Alldata.filter(
+  //     (item) => item.category === "Pants" || item.category === "Palazzos"
+  //   );
+  //   dispatch({ type: "SET_PRODUCTS", payload: sort });
+  //   console.log("sort", sort);
+  // };
   // price sort
   const priceSortHandler = (type) => {
     if (type === "low") {
