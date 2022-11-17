@@ -92,7 +92,7 @@ const Categorylayout = () => {
               <span>|</span>
             </div>
             <div>
-              <i class="fas fa-truck"></i>
+            <i class="fa fa-truck" aria-hidden="true"></i>
               <span>FREE SHIPPING</span>
             </div>
             <div>
@@ -107,11 +107,6 @@ const Categorylayout = () => {
         <div className={categorycss.head}>
           <h1>Top Category</h1>
         </div>
-        {/* <div className={categorycss.head}>
-          <h1>{bodyimage[0].text}</h1>
-        </div> */}
-
-
         <div className={categorycss.bodyimagecss}>
           <Link to={bodyimage[0].url}>
             <img src={bodyimage[0].imageurl} alt="body" />
