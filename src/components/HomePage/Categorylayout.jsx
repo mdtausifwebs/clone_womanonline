@@ -92,15 +92,15 @@ const Categorylayout = () => {
               <span>|</span>
             </div>
             <div>
-            <i class="fa fa-truck" aria-hidden="true"></i>
+              <i className="fa fa-truck"></i>
               <span>FREE SHIPPING</span>
             </div>
             <div>
               <span>|</span>
             </div>
             <div>
-              <i class="fa fa-rotate-right"></i>
-           <span>EASY RETURNS</span>
+              <i className="fa fa-rotate-right"></i>
+              <span>EASY RETURNS</span>
             </div>
           </div>
         </div>

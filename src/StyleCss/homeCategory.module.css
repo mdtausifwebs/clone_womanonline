@@ -33,9 +33,9 @@
   width: 100%;
 }
 .head h1 {
-  width: 20%;
+  width: 30%;
   padding: 5px;
-  font-size: 30px;
+  font-size: 2rem;
   font-weight: 700;
   background-color: #a80e0e;
   border-radius: 2rem;
