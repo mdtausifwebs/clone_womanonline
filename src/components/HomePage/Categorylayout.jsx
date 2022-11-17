@@ -85,7 +85,7 @@ const Categorylayout = () => {
         <div className={categorycss.head}>
           <div className={categorycss.deleveryicons}>
             <div>
-              <i className="fas fa-wallet"></i>
+            <i className="fa fa-truck"></i>
               <span>CASH ON DELEVERY</span>
             </div>
             <div>
