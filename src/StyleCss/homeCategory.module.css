@@ -21,7 +21,6 @@
   /* border: 1px solid black; */
 }
 .head {
-  /* border: 1px solid black; */
   display: flex;
   justify-content: center;
   align-items: center;
@@ -35,15 +34,32 @@
 }
 .head h1 {
   width: 20%;
-  /* border: 1px solid black; */
   padding: 5px;
   font-size: 30px;
   font-weight: 700;
-  border: 10px 10px 10px #a80e0e;
-  border-radius: 5px;
+  background-color: #a80e0e;
+  border-radius: 2rem;
+  color: white;
+  padding: 1rem;
 }
 img {
   cursor: pointer;
+}
+.deleveryicons {
+  padding: 2rem;
+  width: 20%;
+  display: flex;
+  justify-content: space-around;
+}
+.deleveryicons div {
+  display: flex;
+  flex-direction: column;
+}
+.deleveryicons i {
+  font-size: 1.5rem;
+}
+.deleveryicons span {
+  font-size: 1rem;
 }
 @media only screen and (max-width: 400px) {
   /* .head {

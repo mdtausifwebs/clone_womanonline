@@ -6,6 +6,8 @@ import axios from "axios";
 import { useEffect } from "react";
 // import { useSelector } from "react-redux";
 const Navbar = () => {
+  const token = JSON.parse(localStorage.getItem("token"));
+  const Cartsdata = JSON.parse(localStorage.getItem("Cartsdata"));
   useEffect(() => {
     const getdata = async () => {
       let res = await axios.get(
@@ -13,20 +15,14 @@ const Navbar = () => {
       );
       res = res.data;
       // console.log("res", res);
-      setsidebar(res.result.filters);
     };
     getdata();
   }, []);
-  const token = JSON.parse(localStorage.getItem("token"));
-  // const { Carts } = useSelector((state) => state);
-  const Cartsdata = JSON.parse(localStorage.getItem("Cartsdata"));
   return (
     <div className={navbarcss.container}>
       <div className={navbarcss.childContainer}>
         <div className={navbarcss.logoSec}>
-          <div
-            className={navbarcss.bergarmenu}
-          >
+          <div className={navbarcss.bergarmenu}>
             <i className="fa fa-bars"></i>
           </div>
           <div className={navbarcss.logo}>

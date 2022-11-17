@@ -82,18 +82,33 @@ const Categorylayout = () => {
     <div className={categorycss.main_container}>
       <div className={categorycss.container}>
         <div className={categorycss.head}>
-          <h1>Top Category</h1>
-        </div>
-        <div className={categorycss.head}>
           <div className={categorycss.deleveryicons}>
-            <i className="fa-duotone fa-wallet"></i>
-            <i className="fa-sharp fa-solid fa-truck-fast"></i>
-            <i className="fa-regular fa-rotate-left"></i>
+            <div>
+              <i className="fas fa-wallet"></i>
+              <span>CASH ON DELEVERY</span>
+            </div>
+            <div>
+              <span>|</span>
+            </div>
+            <div>
+              <i class="fas fa-truck"></i>
+              <span>FREE SHIPPING</span>
+            </div>
+            <div>
+              <span>|</span>
+            </div>
+            <div>
+              <i class="fa fa-rotate-right"></i>
+           <span>EASY RETURNS</span>
+            </div>
           </div>
         </div>
         <div className={categorycss.head}>
-          <h1>{bodyimage[0].text}</h1>
+          <h1>Top Category</h1>
         </div>
+        {/* <div className={categorycss.head}>
+          <h1>{bodyimage[0].text}</h1>
+        </div> */}
         <div className={categorycss.bodyimagecss}>
           <Link to={bodyimage[0].url}>
             <img src={bodyimage[0].imageurl} alt="body" />
