@@ -1,8 +1,11 @@
+// let res = await axios.get(
+//   `https://pim.wforwoman.com/pim/pimresponse.php/?service=category&store=1&url_key=top-wear-sets-dresses&page=1&count=400`
+// );
 import React from "react";
 import { useEffect } from "react";
 import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import {  Link, useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import ProductSlider from "./ProductSlider";
 import Sidebar from "../NavbarSec/Sidebar";
 import Productcss from "../../StyleCss/Products.module.css";
@@ -10,31 +13,44 @@ import axios from "axios";
 const Products = () => {
   const dispatch = useDispatch();
   const params = useParams().navcategory;
-  const [pageNo, setPageNo] = useState(4);
-  const [pageSize, setPageSize] = useState(200);
-  const { Products } = useSelector((state) => state);
-  // console.log('Alldata', Alldata);
-  console.log('Products', Products);
+  const [pageNo] = useState(1);
+  const [pageSize] = useState(2000);
+  const state = useSelector((state) => state?.Alldata?.result?.products);
+  const [data, setdata] = useState([])
+  const pageArr = [1, 2, 3, 4, 5, 6, 7, 8, 9]
+  const [currentpage, setCurrentpage] = useState(1)
+  const [perPageSize] = useState(8)
+  // console.log(Products, loading)
+  const indexLast = currentpage * perPageSize
+  const indexFirst = indexLast - perPageSize
+  console.log(indexFirst, indexLast)
+  useEffect(() => {
+    if (state != null) {
+      setdata(state?.slice(indexFirst, indexLast))
+    }
+  }, [currentpage, state, indexFirst, indexLast])
+  const pagesize = (text) => {
+    if (text === "Pre") {
+      setCurrentpage(currentpage - 1)
+    } else {
+      setCurrentpage(currentpage + 1)
+    }
+  }
   useEffect(() => {
     let getdata = async () => {
       let res = await axios.get(
         `https://pim.wforwoman.com/pim/pimresponse.php/?service=category&store=1&url_key=${params}&page=${pageNo}&count=${pageSize}`
       );
-      // let res = await axios.get(
-      //   `https://pim.wforwoman.com/pim/pimresponse.php/?service=category&store=1&url_key=top-wear-sets-dresses&page=1&count=400`
-      // );
-      res = await res.data.result.products;
+      res = await res.data;
       dispatch({ type: "SET_ALLDATA", payload: res });
-      setPageNo(1);
-      setPageSize(200);
     };
-
     getdata();
-  }, [dispatch, pageNo, pageSize, params]);
+
+  }, [dispatch, params, pageNo, pageSize]);
+
   const detailsProduct = (item) => {
     dispatch({ type: "SET_DETAILS", payload: item });
   };
-
   return (
     <div>
       <div className={Productcss.container}>
@@ -42,7 +58,7 @@ const Products = () => {
           <Sidebar />
         </div>
         <div className={Productcss.childContainer}>
-          {Products?.map((item, i) => {
+          {data?.map((item, i) => {
             return (
               <div key={i} className={Productcss.ProductBox}>
                 <Link
@@ -68,6 +84,18 @@ const Products = () => {
               </div>
             );
           })}
+          <div className={Productcss.pageNoSec}>
+            <button onClick={() => currentpage > 1 ? setCurrentpage(currentpage - 1) : null}>Pre</button>
+            {
+              pageArr.map((item, i) => {
+                return <div key={i}>
+                  <button className={currentpage === item ? Productcss.Active : null} onClick={() => pagesize(item)}>{item}</button>
+                </div>
+              })
+            }
+          
+            <button onClick={() => currentpage < state?.length - 1 / perPageSize ? setCurrentpage(currentpage + 1) : null}>Next</button>
+          </div>
         </div>
       </div>
     </div>

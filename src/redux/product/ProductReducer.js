@@ -6,16 +6,10 @@ const initialState = {
 };
 export const ProductReducer = (state = initialState, action) => {
   switch (action.type) {
-    case "SET_PRODUCTS":
-      return {
-        ...state,
-        Products: action.payload,
-      };
     case "SET_ALLDATA":
       return {
         ...state,
         Alldata: action.payload,
-        Products: action.payload,
       };
     case "SET_DETAILS":
       return {

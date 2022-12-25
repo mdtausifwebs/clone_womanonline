@@ -78,9 +78,11 @@
   width: 100%;
   display: flex;
   justify-content: space-around;
-  border: 1px solid black;
+  /* border: 1px solid black; */
 }
-
+.buttonsec button{
+  border: none;
+}
 .incrementbtn {
   width: 20%;
   /* border: 1px solid black; */
@@ -91,6 +93,7 @@
 }
 .incrementbtn button {
   background-color: rgb(212, 206, 206);
+  border: none;
 }
 .incrementbtn span {
   width: 50%;

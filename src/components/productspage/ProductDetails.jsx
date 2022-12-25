@@ -12,8 +12,10 @@ const ProductDetails = () => {
   const navigatelink = useNavigate();
   const [temp, setTemp] = useState(false);
   const params = useParams();
-  const { Products, CartPrice } = useSelector((state) => state);
-  // console.log("CartPrice", CartPrice);
+  const { CartPrice } = useSelector((state) => state);
+  const state = useSelector((state) => state?.Alldata?.result?.products)
+
+  console.log("state", state);
   const [increment, setincrement] = useState(1);
   const [currentProduct, setproductdetail] = useState();
   const [index, setindex] = useState(0);
@@ -45,7 +47,7 @@ const ProductDetails = () => {
       bigImagechange();
     }
     const findProduct = () => {
-      let product = Products.find((item) => {
+      let product = state.find((item) => {
         return item.id_product === params.productid;
       });
       if (product) {
@@ -53,7 +55,7 @@ const ProductDetails = () => {
       }
     };
     findProduct();
-  }, [currentProduct, temp, Products, index, params]);
+  }, [currentProduct, temp, state, index, params]);
 
   const AddtoCart = () => {
     //start total cart price option
