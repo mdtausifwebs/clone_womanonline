@@ -14,8 +14,7 @@ const ProductDetails = () => {
   const params = useParams();
   const { CartPrice } = useSelector((state) => state);
   const state = useSelector((state) => state?.Alldata?.result?.products)
-
-  console.log("state", state);
+  // console.log("state", state);
   const [increment, setincrement] = useState(1);
   const [currentProduct, setproductdetail] = useState();
   const [index, setindex] = useState(0);

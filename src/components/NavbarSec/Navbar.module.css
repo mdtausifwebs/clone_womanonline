@@ -33,9 +33,10 @@
   position: relative;
 }
 .searchSec {
-  width: 15%;
+  width: 18%;
   padding: 2px;
   border: 1px solid rgb(237, 233, 233);
+  cursor: pointer;
 }
 .searchSec input {
   outline: none;

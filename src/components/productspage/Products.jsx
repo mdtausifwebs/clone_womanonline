@@ -20,10 +20,9 @@ const Products = () => {
   const pageArr = [1, 2, 3, 4, 5, 6, 7, 8, 9]
   const [currentpage, setCurrentpage] = useState(1)
   const [perPageSize] = useState(8)
-  // console.log(Products, loading)
   const indexLast = currentpage * perPageSize
   const indexFirst = indexLast - perPageSize
-  console.log(indexFirst, indexLast)
+  // console.log(indexFirst, indexLast)
   useEffect(() => {
     if (state != null) {
       setdata(state?.slice(indexFirst, indexLast))
@@ -93,7 +92,6 @@ const Products = () => {
                 </div>
               })
             }
-          
             <button onClick={() => currentpage < state?.length - 1 / perPageSize ? setCurrentpage(currentpage + 1) : null}>Next</button>
           </div>
         </div>
